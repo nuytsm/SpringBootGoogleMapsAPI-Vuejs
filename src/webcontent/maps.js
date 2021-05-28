@@ -78,6 +78,12 @@ function drawlines(){
 		    strokeWeight: 2,
 	  		});
 	  lijn.setMap(map);
+	for (loc of locations){
+		new google.maps.Marker({
+		    position: loc,
+		    map
+		  });
+	}
 }
 
 function geocodeAddress(geocoder, resultsMap, address) {
