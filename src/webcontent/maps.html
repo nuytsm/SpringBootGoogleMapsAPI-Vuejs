@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="maps.js" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+	<style>
+		#map {
+		  height: 100%;
+		}
+
+		/* Optional: Makes the sample page fill the window. */
+		html,
+		body {
+		  height: 100%;
+		  margin: 0;
+		  padding: 0;
+		}
+	
+	</style>
+  </head>
+  <body >
+  	<div id="app">
+	   	<input v-model="locationname" v-on:keydown="addloc" >
+	  	<button v-on:click="addlocation">Add</button>
+	  	<ol>
+	  		<li v-for="loc in locationnames">
+		      {{ loc }}
+		    </li>
+	  	</ol>
+  	</div>
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
